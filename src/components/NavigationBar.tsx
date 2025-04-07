@@ -115,9 +115,6 @@ export default function NavigationBar(props: Props) {
       </nav>
       <Box component="main" sx={{ p: 3 }}>
         <Toolbar />
-        <Typography>
-          Test
-        </Typography>
       </Box>
     </Box>
   );
