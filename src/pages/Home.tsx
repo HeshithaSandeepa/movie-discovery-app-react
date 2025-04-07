@@ -16,6 +16,11 @@ const Home = () => {
     { id: 3, title: "Back hawk Down", release_date: "2024" },
     { id: 4, title: "GTA", release_date: "2020" },
     { id: 5, title: "MTA", release_date: "2007" },
+    { id: 6, title: "MTA", release_date: "2007" },
+    { id: 7, title: "MTA", release_date: "2007" },
+    { id: 8, title: "MTA", release_date: "2007" },
+    { id: 9, title: "MTA", release_date: "2007" },
+    { id: 10, title: "MTA", release_date: "2007" },
   ];
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -72,7 +77,7 @@ const Home = () => {
         />
         {/* search box ends */}
         {/* search button */}
-        <Button variant="contained" size="large">Search</Button>
+        <Button variant="contained" color="success" size="large">Search</Button>
       </Box>
 
       {/* search box ends */}
@@ -80,7 +85,7 @@ const Home = () => {
       <Grid container spacing={2} justifyContent="center">
         {movies.map((movie) => (
           movie.title.toLowerCase().startsWith(search.toLowerCase()) && (
-            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3}>
+            <Grid item key={movie.id} xs={12} sm={6} md={4} lg={3} >
               <MovieCard
                 key={movie.id}
                 title={movie.title}

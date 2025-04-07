@@ -8,7 +8,7 @@ import NavigationBar from './components/NavigationBar';
 
 
 
-function App() {
+const App = () => {
 
   return (
     <div className='container'>

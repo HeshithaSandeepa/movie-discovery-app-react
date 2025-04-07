@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { Grid } from '@mui/material';
 
 
 interface Movie {
@@ -15,7 +14,6 @@ interface Movie {
   release_date: string
 
 }
-
 
 
 const MovieCard = ({ url, title, release_date }: Movie) => {
@@ -27,21 +25,25 @@ const MovieCard = ({ url, title, release_date }: Movie) => {
     <>
       <Card sx={
         {
-          minWidth: 250,
+          minWidth: 200,
           backgroundColor: '#171717',
           color: 'white',
           m: 1,
+          overflowY: 'hidden',
         }}>
         <CardActionArea>
           <CardMedia
-            component="img"
+            component="div"
             image={url}
-            alt="image"
             sx={{
-              height: 160,
+              height: 250, // Fixed height
               width: '100%',
-              objectFit: 'cover',
-              display: 'block',
+
+              backgroundSize: 'cover',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              objectFit: 'cover'
+
             }}
           />
           <CardContent>
