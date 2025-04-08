@@ -14,7 +14,7 @@ const Home = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Load popular movies on mount
+  // Load popular movies 
   useEffect(() => {
     const loadPopularMovies = async () => {
       try {
@@ -48,7 +48,7 @@ const Home = () => {
       setError("");
     } catch (err) {
       console.error(err);
-      setError("Search failed");
+      setError("Search failed...");
     } finally {
       setLoading(false);
 
@@ -98,12 +98,13 @@ const Home = () => {
       <Grid container spacing={2} justifyContent="center">
         {movies.map((movie: any, index: number) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={3}>
-            <MovieCard
-              title={movie.title}
-              release_date={movie.release_date}
-              url={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            <MovieCard movie={{
+              id: movie.id,
+              title: movie.title,
+              release_date: movie.release_date,
+              url: `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            }} />
 
-            />
           </Grid>
         ))}
       </Grid>

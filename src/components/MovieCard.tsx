@@ -5,21 +5,37 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import CardActionArea from '@mui/material/CardActionArea';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useMovieContext } from '../contexts/MovieContext';
 
-interface Movie {
+export interface Movie {
+  id: number;
   url: string;
   title: string;
   release_date: string;
+  poster_path?: string;
+
+
+}
+interface MovieProps {
+  movie: Movie;
 }
 
-const MovieCard = ({ url, title, release_date }: Movie) => {
-  const handleFavoriteClick = () => {
-    alert('Added to favorites!');
+const MovieCard = ({ movie }: MovieProps) => {
+
+  const { isFavorite, addToFavorites, removeFavorites } = useMovieContext();
+
+  const favorite = isFavorite(movie.id);
+
+  const handleFavoriteClick = (e: React.ChangeEvent<HTMLInputElement>) => {
+    e.preventDefault()
+    if (favorite) removeFavorites(movie.id);
+    else addToFavorites(movie)
   };
 
   return (
     <Card sx={{
-      minWidth: 200,
+      minWidth: 220,
+      maxWidth: 220,
       backgroundColor: '#171717',
       color: 'white',
       m: 1,
@@ -28,8 +44,8 @@ const MovieCard = ({ url, title, release_date }: Movie) => {
       <CardActionArea>
         <CardMedia
           component="img"
-          image={url}
-          alt={title}
+          image={movie.url}
+          alt={movie.title}
           sx={{
             height: 250,
             width: '100%',
@@ -38,17 +54,17 @@ const MovieCard = ({ url, title, release_date }: Movie) => {
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="div" noWrap>
-            {title}
+            {movie.title}
           </Typography>
           <Typography variant="body2" sx={{ color: 'white' }}>
-            {release_date}
+            {movie.release_date?.split("-")[0]}
           </Typography>
         </CardContent>
       </CardActionArea>
       <Button
         onClick={handleFavoriteClick}
         size="small"
-        color="primary"
+        color={favorite ? "error" : "primary"}
         startIcon={<FavoriteIcon />}
         sx={{ margin: '0.5rem' }}
       >
