@@ -1,54 +1,33 @@
-# React + TypeScript + Vite
+# Movie Discovery Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Overview
+A responsive web application for browsing popular movies and managing favorites, built with modern web technologies.
 
-Currently, two official plugins are available:
+## Key Features
+- Browse currently popular movies
+- Search for specific movies
+- Add/remove movies from favorites
+- Persistent favorites storage
+- Responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies Used
 
-## Expanding the ESLint configuration
+### Core Technologies
+- **React** (v18+) - Frontend library for building user interfaces
+- **TypeScript** - Typed JavaScript for improved code quality
+- **Material UI** (v5+) - Component library for consistent UI design
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Additional Technologies
+- MovieDB API - Data source for movie information
+- CSS3 - Custom styling and theming
+- LocalStorage - Client-side persistence for favorites
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+## Application Screenshots
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Home Page
+![Home Page Screenshot](https://i.imgur.com/9Xsg6ee.png)
+*Browse and search popular movies*
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+### Favorites Page
+![Favorites Page Screenshot](https://i.imgur.com/FY8D7Sf.png)
+*View and manage your saved favorites*
