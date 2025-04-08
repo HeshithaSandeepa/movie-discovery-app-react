@@ -1,4 +1,8 @@
 .container {
   background-color: #212121;
-  min-height: 100vh;
+}
+
+html {
+  background-color: #212121;
+  scrollbar-width: none;
 }

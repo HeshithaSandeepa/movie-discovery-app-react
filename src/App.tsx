@@ -7,7 +7,6 @@ import NavigationBar from './components/NavigationBar';
 
 
 
-
 const App = () => {
 
   return (
